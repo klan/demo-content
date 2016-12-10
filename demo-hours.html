@@ -1,0 +1,120 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!-- Iron elements -->
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/device-icons.html">
+
+<!-- Paper elements -->
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-item/paper-item-body.html">
+<link rel="import" href="../paper-item/paper-icon-item.html">
+
+<!--
+`demo-hours`
+
+@demo demo/hours/index.html 
+-->
+
+<dom-module id="demo-hours">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        font-family: "Roboto","Helvetica","Arial",sans-serif;
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+      }
+      paper-card {
+        max-width: 900px;
+      }
+      paper-item-body {
+        color: #616161;
+        font-size: 18px;
+        line-height: 28px;
+      }
+      iron-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .table {
+        display: table;
+        padding: 0.5em 0;
+      }
+      .row {
+        display: table-row;
+      }
+      .cell {
+        display: table-cell;
+        padding: 0.2em 0.5em;
+      }
+    </style>
+
+    <paper-card role="listbox">
+      <paper-icon-item>
+        <iron-icon icon="device:access-time" item-icon></iron-icon>
+        <paper-item-body two-line>
+          <div style="font-weight: 600;">kriss-kross</div>
+          <div secondary>Open hours</div>
+        </paper-item-body>
+      </paper-icon-item>
+      <paper-icon-item>
+        <paper-item-body>
+
+          <section class="table">
+            <header class="row">
+              <div class="cell">Monday</div>
+              <div class="cell">9:00 - 16:00</div>
+            </header>
+            <div class="row">
+              <div class="cell">Tuesday</div>
+              <div class="cell">9:00 - 16:00</div>
+            </div>
+            <div class="row">
+              <div class="cell">Wednesday</div>
+              <div class="cell">9:00 - 16:00</div>
+            </div>
+            <div class="row">
+              <div class="cell">Thursday</div>
+              <div class="cell">9:00 - 16:00</div>
+            </div>
+            <div class="row">
+              <div class="cell">Friday</div>
+              <div class="cell">9:00 - 16:00</div>
+            </div>
+            <div class="row" style="color: lightgrey;">
+              <div class="cell">Saturday</div>
+              <div class="cell">Closed</div>
+            </div>
+            <div class="row" style="color: lightgrey;">
+              <div class="cell">Sunday</div>
+              <div class="cell">Closed</div>
+            </div>
+          </section>
+
+        </paper-item-body>
+      </paper-icon-item>
+    </paper-card>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'demo-hours',
+
+      properties: {},
+
+      behaviors: [],
+
+      listeners: {}
+
+    });
+  </script>
+
+</dom-module>
