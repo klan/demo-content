@@ -30,6 +30,8 @@
         @apply(--layout-center-justified);
       }
       paper-card {
+        width: 100%;
+        max-width: 900px;
         --paper-card-header-image: {
           width: 100%;
           height: 100%;
@@ -44,7 +46,6 @@
         --paper-card-actions: {
           @apply(--layout-horizontal);
         };
-        max-width: 512px;
       }
       paper-card ::content #placeholder {
         background-position: center;
