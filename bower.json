@@ -2,7 +2,7 @@
   "name": "demo-content",
   "main": "demo-content.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.3.0",
+    "polymer": "polymer/polymer#^1.4.0",
     "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.3.1",
     "paper-card": "PolymerElements/paper-card#^1.1.4",
     "paper-button": "PolymerElements/paper-button#^1.0.14",
