@@ -14,7 +14,7 @@
     "paper-menu-button": "PolymerElements/paper-menu-button#^1.5.2",
     "paper-tabs": "PolymerElements/paper-tabs#^1.7.0",
     "polymer": "polymer/polymer#^1.4.0",
-    "social-share-buttons": "kriss-kross-io/social-share-buttons#^1.0.2"
+    "social-share-buttons": "kriss-kross-io/social-share-buttons#^1.0.3"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
