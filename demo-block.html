@@ -10,7 +10,13 @@
 <!-- Paper elements -->
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-menu-button/paper-menu-button.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-tabs/paper-tabs.html">
+
+<!-- Custom elements -->
+<link rel="import" href="../social-share-buttons/social-share-buttons.html">
+<link rel="import" href="../social-share-buttons/social-share-icons.html">
 
 <!--
 `demo-block`
@@ -49,9 +55,6 @@
       }
       paper-button {
         padding: 8px;
-      }
-      paper-icon-button {
-        display: inline-flex;
       }
       iron-image {
         width: 48px;
@@ -107,7 +110,31 @@
 
       <div class="card-actions">
         <paper-button><iron-icon icon="favorite"></iron-icon>42</paper-button>
-        <paper-icon-button icon="social:share"></paper-button>
+
+        <paper-menu-button
+            no-overlap
+            horizontal-align="right">
+          <paper-icon-button icon="social:share" class="dropdown-trigger"></paper-icon-button>
+          <social-share-buttons class="dropdown-content"
+              media="https://getmdl.io/templates/blog/images/road_big.jpg"
+              url="https://github.com/kriss-kross-io/demo-content"
+              title="On the road again">
+            <paper-tabs>
+              <paper-tab>
+                <iron-icon class="twitter" data-id="twitter" icon="social-share:twitter"></iron-icon>
+              </paper-tab>
+              <paper-tab>
+                <iron-icon class="facebook" data-id="facebook" icon="social-share:facebook"></iron-icon>
+              </paper-tab>
+              <paper-tab>
+                <iron-icon class="google" data-id="google" icon="social-share:googleplus"></iron-icon>
+              </paper-tab>
+              <paper-tab>
+                <iron-icon class="linkedin" data-id="linkedin" icon="social-share:linkedin"></iron-icon>
+              </paper-tab>
+            </paper-tabs>
+          </social-share-button>
+        </paper-menu-button>
       </div>
 
     </paper-card>
