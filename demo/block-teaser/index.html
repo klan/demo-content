@@ -11,6 +11,7 @@
 
     <link rel="import" href="../../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../../iron-ajax/iron-ajax.html">
 
     <link rel="import" href="../../demo-block-teaser.html">
 
@@ -23,9 +24,18 @@
       <h3>Basic demo-block-teaser demo</h3>
       <demo-snippet>
 
-        <template>
+        <template is="dom-bind">
 
-          <demo-block-teaser></demo-block-teaser>
+          <iron-ajax
+            auto
+            url="../../block-example-data.json"
+            handle-as="json"
+            last-response="{{ajaxResponse}}"></iron-ajax>
+
+          <demo-block-teaser
+            header="[[ajaxResponse.header]]"
+            header-image="[[ajaxResponse.headerImage]]"
+            body="[[ajaxResponse.body]]"></demo-block-teaser>
 
         </template>
 

@@ -17,6 +17,7 @@
     "social-share-buttons": "kriss-kross-io/social-share-buttons#^1.0.3"
   },
   "devDependencies": {
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
     "web-component-tester": "^4.0.0",
