@@ -94,8 +94,18 @@
       is: 'demo-hours',
 
       properties: {
-        header: Object,
-        hours: Array
+        header: {
+          type: Object,
+          value: function() {
+            return {};
+          }
+        },
+        hours: {
+          type: Array,
+          value: function() {
+            return [];
+          }
+        }
       },
 
       behaviors: [],

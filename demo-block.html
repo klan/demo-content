@@ -9,7 +9,6 @@
 
 <!-- Paper elements -->
 <link rel="import" href="../paper-card/paper-card.html">
-<link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../paper-menu-button/paper-menu-button.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../paper-tabs/paper-tabs.html">
@@ -52,9 +51,6 @@
       }
       paper-card ::content #placeholder {
         background-position: center;
-      }
-      paper-button {
-        padding: 8px;
       }
       iron-image {
         width: 48px;
@@ -112,8 +108,6 @@
       </div>
 
       <div class="card-actions">
-        <paper-button><iron-icon icon="favorite"></iron-icon>42</paper-button>
-
         <paper-menu-button
             no-overlap
             horizontal-align="right">
@@ -150,10 +144,24 @@
       is: 'demo-block',
 
       properties: {
-        header: String,
-        headerImage: String,
-        body: Array,
-        author: Object,
+        header: {
+          type: String
+        },
+        headerImage: {
+          type: String
+        },
+        body: {
+          type: Array,
+          value: function() {
+            return [];
+          }
+        },
+        author: {
+          type: Object,
+          value: function() {
+            return {};
+          }
+        },
         url: {
           type: String,
           value: function() {

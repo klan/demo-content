@@ -120,8 +120,18 @@
       is: 'demo-calling-card',
 
       properties: {
-        header: Object,
-        items: Array
+        header: {
+          type: Object,
+          value: function() {
+            return {};
+          }
+        },
+        items: {
+          type: Array,
+          value: function() {
+            return [];
+          }
+        }
       },
 
       behaviors: [],
