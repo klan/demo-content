@@ -10,12 +10,12 @@
     "secondary": "hello@kriss-kross.io"
   }, {
     "type": "default",
-    "icon": "communication:phone",
+    "icon": "content-icons:phone",
     "title": "(+45) 93 60 92 02",
     "secondary": "Mobile"
   }, {
     "type": "widget_maps",
-    "icon": "maps:my-location",
+    "icon": "content-icons:my-location",
     "title": "kriss-kross",
     "latitude": "55.395248",
     "longitude": "10.371801"

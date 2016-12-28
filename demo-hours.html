@@ -3,14 +3,15 @@
 <!-- Iron elements -->
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-icons/iron-icons.html">
-<link rel="import" href="../iron-icons/device-icons.html">
 
 <!-- Paper elements -->
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../paper-item/paper-item-body.html">
 <link rel="import" href="../paper-item/paper-icon-item.html">
+
+<!-- Custom elements -->
+<link rel="import" href="content-icons.html">
 
 <!--
 `demo-hours`
@@ -62,7 +63,7 @@
 
     <paper-card role="listbox">
       <paper-icon-item>
-        <iron-icon icon="device:access-time" item-icon></iron-icon>
+        <iron-icon icon="content-icons:access-time" item-icon></iron-icon>
         <paper-item-body two-line>
           <div style="font-weight: 600;">[[header.title]]</div>
           <div secondary>[[header.secondary]]</div>

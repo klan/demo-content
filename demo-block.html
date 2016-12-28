@@ -3,8 +3,6 @@
 <!-- Iron elements -->
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-icons/iron-icons.html">
-<link rel="import" href="../iron-icons/social-icons.html">
 <link rel="import" href="../iron-image/iron-image.html">
 
 <!-- Paper elements -->
@@ -14,6 +12,7 @@
 <link rel="import" href="../paper-tabs/paper-tabs.html">
 
 <!-- Custom elements -->
+<link rel="import" href="content-icons.html">
 <link rel="import" href="../social-share-buttons/social-share-buttons.html">
 <link rel="import" href="../social-share-buttons/social-share-icons.html">
 
@@ -111,7 +110,7 @@
         <paper-menu-button
             no-overlap
             horizontal-align="right">
-          <paper-icon-button icon="social:share" class="dropdown-trigger"></paper-icon-button>
+          <paper-icon-button icon="content-icons:share" class="dropdown-trigger"></paper-icon-button>
           <social-share-buttons class="dropdown-content"
               media="[[headerImage]]"
               url="[[url]]"
