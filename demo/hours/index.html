@@ -11,6 +11,7 @@
 
     <link rel="import" href="../../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../../iron-ajax/iron-ajax.html">
 
     <link rel="import" href="../../demo-hours.html">
 
@@ -23,9 +24,17 @@
       <h3>Basic demo-hours demo</h3>
       <demo-snippet>
 
-        <template>
+        <template is="dom-bind">
 
-          <demo-hours></demo-hours>
+          <iron-ajax
+            auto
+            url="../../hours-example-data.json"
+            handle-as="json"
+            last-response="{{ajaxResponse}}"></iron-ajax>
+
+          <demo-hours
+            header="[[ajaxResponse.header]]"
+            hours="[[ajaxResponse.hours]]"></demo-hours>
 
         </template>
 

@@ -1,0 +1,23 @@
+{
+  "header": {
+    "title": "kriss-kross",
+    "secondary": "Web agency"
+  },
+  "items": [{
+    "type": "profile",
+    "media": "https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-128.png",
+    "title": "Klaus Nielsen",
+    "secondary": "hello@kriss-kross.io"
+  }, {
+    "type": "default",
+    "icon": "communication:phone",
+    "title": "(+45) 93 60 92 02",
+    "secondary": "Mobile"
+  }, {
+    "type": "widget_maps",
+    "icon": "maps:my-location",
+    "title": "kriss-kross",
+    "latitude": "55.395248",
+    "longitude": "10.371801"
+  }]
+}

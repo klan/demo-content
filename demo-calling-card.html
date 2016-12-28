@@ -7,6 +7,7 @@
 <link rel="import" href="../iron-icons/communication-icons.html">
 <link rel="import" href="../iron-icons/maps-icons.html">
 <link rel="import" href="../iron-image/iron-image.html">
+<link rel="import" href="../iron-pages/iron-pages.html">
 
 <!-- Paper elements -->
 <link rel="import" href="../paper-card/paper-card.html">
@@ -48,50 +49,67 @@
         height: 40px;
         border-radius: 50%;
       }
+      paper-icon-item.widget_maps {
+        padding-right: 0;
+      }
     </style>
 
     <paper-card role="listbox">
+
       <paper-item>
         <paper-item-body two-line>
-          <div style="font-weight: 600;">kriss-kross</div>
-          <div secondary>Web agency</div>
+          <div style="font-weight: 600;">[[header.title]]</div>
+          <div secondary>[[header.secondary]]</div>
         </paper-item-body>
       </paper-item>
-      <paper-icon-item>
-        <iron-image
+
+      <template is="dom-repeat" items="[[items]]">
+        <paper-icon-item class$="[[item.type]]">
+
+          <iron-pages
             item-icon
-            sizing="contain"
-            src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-128.png"></iron-image>
-        <paper-item-body two-line>
-          <div>Klaus Nielsen</div>
-          <div secondary>hello@kriss-kross.io</div>
-        </paper-item-body>
-      </paper-icon-item>
-      <paper-icon-item>
-        <iron-icon icon="communication:phone" item-icon></iron-icon>
-        <paper-item-body two-line>
-          <div>(+45) 93 60 92 02</div>
-          <div secondary>Mobile</div>
-        </paper-item-body>
-      </paper-icon-item>
-      <paper-icon-item style="padding-right: 0;">
-        <iron-icon icon="maps:navigation" item-icon></iron-icon>
-        <paper-item-body>
-          <google-map style="min-width: 300px; min-height: 150px;"
-              disable-default-ui
-              draggable="false"
-              disable-zoom
-              zoom="9"
-              latitude="55.395248"
-              longitude="10.371801"
-              api-key="AIzaSyA4GgzXlkM8l2DULdguj8IIgDOgm0KyT-M">
-            <google-map-marker
-                latitude="55.395248"
-                longitude="10.371801"
-                title="kriss-kross"></google-map-marker>
-          </google-map>
-        </paper-item-body>
-      </paper-icon-item>
+            attr-for-selected="name"
+            selected="[[item.type]]"
+            fallback-selection="default">
+
+            <iron-image
+              name="profile"
+              fade
+              sizing="contain"
+              src="[[item.media]]"></iron-image>
+
+            <iron-icon
+              name="default"
+              icon="[[item.icon]]"></iron-icon>
+
+          </iron-pages>
+
+          <paper-item-body two-line$="[[!_isWidget(item.type)]]">
+
+            <template is="dom-if" if="[[!_isWidget(item.type)]]">
+              <div>[[item.title]]</div>
+              <div secondary>[[item.secondary]]</div>
+            </template>
+            <template is="dom-if" if="[[_isWidget(item.type)]]">
+              <google-map style="min-width: 300px; min-height: 150px;"
+                disable-default-ui
+                draggable="false"
+                disable-zoom
+                zoom="9"
+                latitude="[[item.latitude]]"
+                longitude="[[item.longitude]]"
+                api-key="AIzaSyA4GgzXlkM8l2DULdguj8IIgDOgm0KyT-M">
+                <google-map-marker
+                  latitude="[[item.latitude]]"
+                  longitude="[[item.longitude]]"
+                  title="[[item.title]]"></google-map-marker>
+              </google-map>
+            </template>
+
+          </paper-item-body>
+        </paper-icon-item>
+      </template>
+
     </paper-card>
 
   </template>
@@ -101,11 +119,18 @@
 
       is: 'demo-calling-card',
 
-      properties: {},
+      properties: {
+        header: Object,
+        items: Array
+      },
 
       behaviors: [],
 
-      listeners: {}
+      listeners: {},
+
+      _isWidget: function(type) {
+        return type.startsWith("widget_") ? true : false;
+      }
 
     });
   </script>

@@ -11,6 +11,7 @@
 
     <link rel="import" href="../../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../../iron-ajax/iron-ajax.html">
 
     <link rel="import" href="../../demo-calling-card.html">
 
@@ -23,9 +24,17 @@
       <h3>Basic demo-calling-card demo</h3>
       <demo-snippet>
 
-        <template>
+        <template is="dom-bind">
 
-          <demo-calling-card></demo-calling-card>
+          <iron-ajax
+            auto
+            url="../../calling-card-example-data.json"
+            handle-as="json"
+            last-response="{{ajaxResponse}}"></iron-ajax>
+
+          <demo-calling-card
+            header="[[ajaxResponse.header]]"
+            items="[[ajaxResponse.items]]"></demo-calling-card>
 
         </template>
 

@@ -50,9 +50,13 @@
       .row {
         display: table-row;
       }
+      .row.closed {
+        opacity: .5;
+      }
       .cell {
         display: table-cell;
         padding: 0.2em 0.5em;
+        text-transform: capitalize;
       }
     </style>
 
@@ -60,42 +64,22 @@
       <paper-icon-item>
         <iron-icon icon="device:access-time" item-icon></iron-icon>
         <paper-item-body two-line>
-          <div style="font-weight: 600;">kriss-kross</div>
-          <div secondary>Open hours</div>
+          <div style="font-weight: 600;">[[header.title]]</div>
+          <div secondary>[[header.secondary]]</div>
         </paper-item-body>
       </paper-icon-item>
       <paper-icon-item>
         <paper-item-body>
 
           <section class="table">
-            <header class="row">
-              <div class="cell">Monday</div>
-              <div class="cell">9:00 - 16:00</div>
-            </header>
-            <div class="row">
-              <div class="cell">Tuesday</div>
-              <div class="cell">9:00 - 16:00</div>
-            </div>
-            <div class="row">
-              <div class="cell">Wednesday</div>
-              <div class="cell">9:00 - 16:00</div>
-            </div>
-            <div class="row">
-              <div class="cell">Thursday</div>
-              <div class="cell">9:00 - 16:00</div>
-            </div>
-            <div class="row">
-              <div class="cell">Friday</div>
-              <div class="cell">9:00 - 16:00</div>
-            </div>
-            <div class="row" style="color: lightgrey;">
-              <div class="cell">Saturday</div>
-              <div class="cell">Closed</div>
-            </div>
-            <div class="row" style="color: lightgrey;">
-              <div class="cell">Sunday</div>
-              <div class="cell">Closed</div>
-            </div>
+
+            <template is="dom-repeat" items="[[hours]]">
+              <div class$="row [[_isClosed(item.opens, item.closes)]]">
+                <div class="cell">[[item.day]]</div>
+                <div class="cell">[[_computeOpenHours(item.opens, item.closes)]]</div>
+              </div>
+            </template>
+
           </section>
 
         </paper-item-body>
@@ -109,11 +93,22 @@
 
       is: 'demo-hours',
 
-      properties: {},
+      properties: {
+        header: Object,
+        hours: Array
+      },
 
       behaviors: [],
 
-      listeners: {}
+      listeners: {},
+
+      _isClosed: function(opens, closes) {
+        return opens && closes ? "open" : "closed";
+      },
+
+      _computeOpenHours: function(opens, closes) {
+        return opens && closes ? opens+" - "+closes : "Closed";
+      }
 
     });
   </script>

@@ -1,0 +1,35 @@
+{
+  "header": {
+    "title": "kriss-kross",
+    "secondary": "Open hours"
+  },
+  "hours": [{
+    "day": "monday",
+    "opens": "9:00",
+    "closes": "16:00"
+  }, {
+    "day": "tuesday",
+    "opens": "9:00",
+    "closes": "16:00"
+  }, {
+    "day": "wednesday",
+    "opens": "9:00",
+    "closes": "16:00"
+  }, {
+    "day": "thursday",
+    "opens": "9:00",
+    "closes": "16:00"
+  }, {
+    "day": "friday",
+    "opens": "9:00",
+    "closes": "15:00"
+  }, {
+    "day": "saturday",
+    "opens": null,
+    "closes": null
+  }, {
+    "day": "sunday",
+    "opens": null,
+    "closes": null
+  }]
+}
