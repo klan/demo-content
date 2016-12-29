@@ -8,8 +8,14 @@
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../paper-button/paper-button.html">
 
+<!-- Molecule elements -->
+<link rel="import" href="../marked-element/marked-element.html">
+
 <!-- Custom elements -->
 <link rel="import" href="content-icons.html">
+
+<!-- Styles -->
+<link rel="import" href="shared-markdown-styles.html">
 
 <!--
 `demo-block-teaser`
@@ -21,7 +27,7 @@
 
   <template>
 
-    <style>
+    <style include="shared-markdown-styles">
       :host {
         display: block;
         font-family: "Roboto","Helvetica","Arial",sans-serif;
@@ -68,6 +74,13 @@
       .card-content > p:first-child {
         font-weight: bold;
       }
+      marked-element {
+        display: block;
+        max-width: 512px;
+        margin: 16px auto;
+        font-size: 16px;
+        line-height: 28px;
+      }
     </style>
 
     <paper-card
@@ -78,7 +91,10 @@
         preload-image>
 
       <div class="card-content">
-        <p>[[_arrayItem(body.*, 0, 'paragraph')]]</p>
+        <marked-element
+          markdown="[[_arrayItem(body.*, 0, 'paragraph')]]">
+          <div class="markdown-html"></div>
+        </marked-element>
       </div>
 
       <div class="card-actions">

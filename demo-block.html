@@ -19,6 +19,9 @@
 <link rel="import" href="../social-share-buttons/social-share-buttons.html">
 <link rel="import" href="../social-share-buttons/social-share-icons.html">
 
+<!-- Styles -->
+<link rel="import" href="shared-markdown-styles.html">
+
 <!--
 `demo-block`
 
@@ -29,7 +32,7 @@
 
   <template>
 
-    <style>
+    <style include="shared-markdown-styles">
       :host {
         display: block;
         font-family: "Roboto","Helvetica","Arial",sans-serif;
@@ -75,55 +78,12 @@
       .info > p {
         margin: 4px 0;
       }
-      /*
-       * markdown-html
-       */
       marked-element {
         display: block;
         max-width: 512px;
         margin: 16px auto;
         font-size: 16px;
         line-height: 28px;
-      }
-      .markdown-html hr {
-        border: 0.1em solid #ddd;
-      }
-      .markdown-html img {
-        max-width: 100%;
-        max-height: 100%;
-        margin: 0 auto;
-        display: block;
-      }
-      .markdown-html table {
-        overflow-x: auto;
-        display: block;
-        border-collapse: collapse;
-      }
-      .markdown-html th,
-      .markdown-html td {
-        padding: 6px 13px;
-        border: 1px solid #ddd;
-      }
-      .markdown-html tr {
-        background-color: #fff;
-      }
-      .markdown-html tr:nth-child(2n) {
-        background-color: #f8f8f8;
-      }
-      .markdown-html blockquote {
-        padding: 0 1em;
-        color: #777;
-        border-left: 0.25em solid #ddd;
-      }
-      .markdown-html code,
-      .markdown-html pre {
-        padding: 0.2em;
-        background-color: #f7f7f7;
-        border-radius: 3px;
-      }
-      .markdown-html pre {
-        overflow-x: auto;
-        padding: 0.4em;
       }
     </style>
 
