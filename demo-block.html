@@ -95,12 +95,10 @@
         preload-image>
 
       <div class="card-content">
-        <template is="dom-repeat" items="[[body]]">
-          <marked-element
-            markdown="[[item.paragraph]]">
-            <div class="markdown-html"></div>
-          </marked-element>
-        </template>
+        <marked-element
+            markdown="[[body]]">
+          <div class="markdown-html"></div>
+        </marked-element>
       </div>
 
       <div class="card-author">
@@ -157,10 +155,7 @@
           type: String
         },
         body: {
-          type: Array,
-          value: function() {
-            return [];
-          }
+          type: String
         },
         author: {
           type: Object,

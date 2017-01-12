@@ -92,7 +92,7 @@
 
       <div class="card-content">
         <marked-element
-          markdown="[[_arrayItem(body.*, 0, 'paragraph')]]">
+            markdown="[[body]]">
           <div class="markdown-html"></div>
         </marked-element>
       </div>
@@ -116,22 +116,17 @@
         header: {
           type: String,
         },
+        headerImage: {
+          type: String
+        },
         body: {
-          type: Array,
-          value: function() {
-            return [];
-          }
+          type: String
         }
       },
 
       behaviors: [],
 
-      listeners: {},
-
-      _arrayItem: function(change, index, path) {
-        // this.get(path, root) returns a value for a path relative to a root object
-        return this.get(path, change.base[index]);
-      },
+      listeners: {}
 
     });
   </script>
