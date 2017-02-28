@@ -38,6 +38,7 @@
       paper-card {
         width: 100%;
         max-width: 900px;
+        min-width: 372px;
       }
       paper-item-body {
         color: #616161;
@@ -92,17 +93,17 @@
             </template>
             <template is="dom-if" if="[[_isWidget(item.type)]]">
               <google-map style="min-width: 300px; min-height: 150px;"
-                disable-default-ui
-                draggable="false"
-                disable-zoom
-                zoom="9"
-                latitude="[[item.latitude]]"
-                longitude="[[item.longitude]]"
-                api-key="AIzaSyA4GgzXlkM8l2DULdguj8IIgDOgm0KyT-M">
-                <google-map-marker
+                  disable-default-ui
+                  draggable="false"
+                  disable-zoom
+                  zoom="9"
                   latitude="[[item.latitude]]"
                   longitude="[[item.longitude]]"
-                  title="[[item.title]]"></google-map-marker>
+                  api-key="AIzaSyA4GgzXlkM8l2DULdguj8IIgDOgm0KyT-M">
+                <google-map-marker
+                    latitude="[[item.latitude]]"
+                    longitude="[[item.longitude]]"
+                    title="[[item.title]]"></google-map-marker>
               </google-map>
             </template>
 
