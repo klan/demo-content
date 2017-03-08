@@ -5,43 +5,43 @@
   <template>
 
     <style>
-      .markdown-html hr {
+      :host ::content .markdown-html hr {
         border: 0.1em solid #ddd;
       }
-      .markdown-html img {
+      :host ::content .markdown-html img {
         max-width: 100%;
         max-height: 100%;
         margin: 0 auto;
         display: block;
       }
-      .markdown-html table {
+      :host ::content .markdown-html table {
         overflow-x: auto;
         display: block;
         border-collapse: collapse;
       }
-      .markdown-html th,
-      .markdown-html td {
+      :host ::content .markdown-html th,
+      :host ::content .markdown-html td {
         padding: 6px 13px;
         border: 1px solid #ddd;
       }
-      .markdown-html tr {
+      :host ::content .markdown-html tr {
         background-color: #fff;
       }
-      .markdown-html tr:nth-child(2n) {
+      :host ::content .markdown-html tr:nth-child(2n) {
         background-color: #f8f8f8;
       }
-      .markdown-html blockquote {
+      :host ::content .markdown-html blockquote {
         padding: 0 1em;
         color: #777;
         border-left: 0.25em solid #ddd;
       }
-      .markdown-html code,
-      .markdown-html pre {
+      :host ::content .markdown-html code,
+      :host ::content .markdown-html pre {
         padding: 0.2em;
         background-color: #f7f7f7;
         border-radius: 3px;
       }
-      .markdown-html pre {
+      :host ::content .markdown-html pre {
         overflow-x: auto;
         padding: 0.4em;
       }
