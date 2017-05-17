@@ -122,16 +122,10 @@
 
       properties: {
         header: {
-          type: Object,
-          value: function() {
-            return {};
-          }
+          type: Object
         },
         items: {
-          type: Array,
-          value: function() {
-            return [];
-          }
+          type: Array
         }
       },
 
@@ -140,7 +134,7 @@
       listeners: {},
 
       _isWidget: function(type) {
-        return type.startsWith("widget_") ? true : false;
+        return type.match("^widget_") ? true : false;
       }
 
     });
