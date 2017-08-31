@@ -14,6 +14,11 @@
     "title": "(+45) 93 60 92 02",
     "secondary": "Mobile"
   }, {
+    "type": "default",
+    "icon": "content-icons:mail",
+    "title": "hello@kriss-kross.io",
+    "secondary": "Mail"
+  }, {
     "type": "widget_maps",
     "icon": "content-icons:my-location",
     "title": "kriss-kross",
