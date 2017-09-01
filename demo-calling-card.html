@@ -40,30 +40,60 @@
         max-width: 900px;
         min-width: 372px;
       }
+      paper-icon-item.widget_maps {
+        padding-right: 0;
+      }
       paper-item-body {
         color: #616161;
         font-size: 18px;
         line-height: 28px;
+      }
+      google-map {
+        min-width: 300px;
+        min-height: 150px;
       }
       iron-image {
         width: 40px;
         height: 40px;
         border-radius: 50%;
       }
-      paper-icon-item.widget_maps {
-        padding-right: 0;
-      }
     </style>
 
     <paper-card role="listbox">
 
-      <paper-item>
-        <paper-item-body two-line>
-          <div style="font-weight: 600;">[[header.title]]</div>
-          <div secondary>[[header.secondary]]</div>
-        </paper-item-body>
-      </paper-item>
+      <!-- header -->
+      <template is="dom-if" if="[[!header.type]]">
+        <paper-item>
+          <paper-item-body two-line>
+            <div style="font-weight: 600;">[[header.title]]</div>
+            <div secondary>[[header.secondary]]</div>
+          </paper-item-body>
+        </paper-item>
+      </template>
+      <template is="dom-if" if="[[header.type]]">
+        <paper-icon-item>
+          <iron-pages
+            item-icon
+            attr-for-selected="name"
+            selected="[[header.type]]"
+            fallback-selection="default">
+            <iron-image
+              name="profile"
+              fade
+              sizing="contain"
+              src="[[header.media]]"></iron-image>
+            <iron-icon
+              name="default"
+              icon="[[header.icon]]"></iron-icon>
+          </iron-pages>
+          <paper-item-body two-line>
+            <div style="font-weight: 600;">[[header.title]]</div>
+            <div secondary>[[header.secondary]]</div>
+          </paper-item-body>
+        </paper-icon-item>
+      </template>
 
+      <!-- items -->
       <template is="dom-repeat" items="[[items]]">
         <paper-icon-item class$="[[item.type]]">
 
@@ -72,42 +102,39 @@
             attr-for-selected="name"
             selected="[[item.type]]"
             fallback-selection="default">
-
             <iron-image
               name="profile"
               fade
               sizing="contain"
               src="[[item.media]]"></iron-image>
-
             <iron-icon
               name="default"
               icon="[[item.icon]]"></iron-icon>
-
           </iron-pages>
 
-          <paper-item-body two-line$="[[!_isWidget(item.type)]]">
-
-            <template is="dom-if" if="[[!_isWidget(item.type)]]">
+          <template is="dom-if" if="[[!_isWidget(item.type)]]">
+            <paper-item-body two-line$="[[!_isWidget(item.type)]]">
               <div>[[item.title]]</div>
               <div secondary>[[item.secondary]]</div>
-            </template>
-            <template is="dom-if" if="[[_isWidget(item.type)]]">
-              <google-map style="min-width: 300px; min-height: 150px;"
-                  disable-default-ui
-                  draggable="false"
-                  disable-zoom
-                  zoom="9"
+            </paper-item-body>
+          </template>
+          <template is="dom-if" if="[[_isWidget(item.type)]]">
+            <!-- TODO: create switch for type -->
+            <google-map
+                disable-default-ui
+                draggable="false"
+                disable-zoom
+                zoom="9"
+                latitude="[[item.latitude]]"
+                longitude="[[item.longitude]]"
+                api-key="AIzaSyA4GgzXlkM8l2DULdguj8IIgDOgm0KyT-M">
+              <google-map-marker
                   latitude="[[item.latitude]]"
                   longitude="[[item.longitude]]"
-                  api-key="AIzaSyA4GgzXlkM8l2DULdguj8IIgDOgm0KyT-M">
-                <google-map-marker
-                    latitude="[[item.latitude]]"
-                    longitude="[[item.longitude]]"
-                    title="[[item.title]]"></google-map-marker>
-              </google-map>
-            </template>
+                  title="[[item.title]]"></google-map-marker>
+            </google-map>
+          </template>
 
-          </paper-item-body>
         </paper-icon-item>
       </template>
 
