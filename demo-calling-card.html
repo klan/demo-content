@@ -1,7 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 
 <!-- Iron elements -->
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../iron-image/iron-image.html">
 <link rel="import" href="../iron-pages/iron-pages.html">
@@ -32,8 +31,6 @@
       :host {
         display: block;
         font-family: "Roboto","Helvetica","Arial",sans-serif;
-        @apply(--layout-horizontal);
-        @apply(--layout-center-justified);
       }
       paper-card {
         width: 100%;
@@ -49,6 +46,8 @@
         line-height: 28px;
       }
       google-map {
+        width: 100%;
+        height: 100%;
         min-width: 300px;
         min-height: 150px;
       }

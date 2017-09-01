@@ -1,5 +1,7 @@
 {
   "header": {
+    "type": "default",
+    "icon": "content-icons:access-time",
     "title": "kriss-kross",
     "secondary": "Open hours"
   },

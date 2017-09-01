@@ -1,8 +1,9 @@
 <link rel="import" href="../polymer/polymer.html">
 
 <!-- Iron elements -->
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-image/iron-image.html">
+<link rel="import" href="../iron-pages/iron-pages.html">
 
 <!-- Paper elements -->
 <link rel="import" href="../paper-card/paper-card.html">
@@ -27,8 +28,6 @@
       :host {
         display: block;
         font-family: "Roboto","Helvetica","Arial",sans-serif;
-        @apply(--layout-horizontal);
-        @apply(--layout-center-justified);
       }
       paper-card {
         width: 100%;
@@ -63,16 +62,41 @@
     </style>
 
     <paper-card role="listbox">
-      <paper-icon-item>
-        <iron-icon icon="content-icons:access-time" item-icon></iron-icon>
-        <paper-item-body two-line>
-          <div style="font-weight: 600;">[[header.title]]</div>
-          <div secondary>[[header.secondary]]</div>
-        </paper-item-body>
-      </paper-icon-item>
+
+      <template is="dom-if" if="[[!header.type]]">
+        <paper-item>
+          <paper-item-body two-line>
+            <div style="font-weight: 600;">[[header.title]]</div>
+            <div secondary>[[header.secondary]]</div>
+          </paper-item-body>
+        </paper-item>
+      </template>
+      <template is="dom-if" if="[[header.type]]">
+        <paper-icon-item>
+          <iron-pages
+            item-icon
+            attr-for-selected="name"
+            selected="[[header.type]]"
+            fallback-selection="default">
+            <iron-image
+              name="profile"
+              fade
+              sizing="contain"
+              src="[[header.media]]"></iron-image>
+            <iron-icon
+              name="default"
+              icon="[[header.icon]]"></iron-icon>
+          </iron-pages>
+          <paper-item-body two-line>
+            <div style="font-weight: 600;">[[header.title]]</div>
+            <div secondary>[[header.secondary]]</div>
+          </paper-item-body>
+        </paper-icon-item>
+      </template>
+
+      <!-- table -->
       <paper-icon-item>
         <paper-item-body>
-
           <section class="table">
 
             <template is="dom-repeat" items="[[hours]]">
@@ -83,9 +107,9 @@
             </template>
 
           </section>
-
         </paper-item-body>
       </paper-icon-item>
+
     </paper-card>
 
   </template>
