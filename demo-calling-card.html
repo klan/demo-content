@@ -9,6 +9,7 @@
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../paper-item/paper-item-body.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../paper-item/paper-icon-item.html">
 
 <!-- Google elements -->
@@ -31,6 +32,9 @@
       :host {
         display: block;
         font-family: "Roboto","Helvetica","Arial",sans-serif;
+      }
+      a {
+        text-decoration: none;
       }
       paper-card {
         width: 100%;
@@ -55,6 +59,12 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
+      }
+      paper-icon-button {
+        color: #616161;
+      }
+      iron-pages {
+        width: 100%;
       }
     </style>
 
@@ -112,26 +122,35 @@
           </iron-pages>
 
           <template is="dom-if" if="[[!_isWidget(item.type)]]">
-            <paper-item-body two-line$="[[!_isWidget(item.type)]]">
+            <paper-item-body two-line>
               <div>[[item.title]]</div>
               <div secondary>[[item.secondary]]</div>
             </paper-item-body>
           </template>
           <template is="dom-if" if="[[_isWidget(item.type)]]">
-            <!-- TODO: create switch for type -->
-            <google-map
-                disable-default-ui
-                draggable="false"
-                disable-zoom
-                zoom="9"
-                latitude="[[item.latitude]]"
-                longitude="[[item.longitude]]"
-                api-key="AIzaSyA4GgzXlkM8l2DULdguj8IIgDOgm0KyT-M">
-              <google-map-marker
+            <iron-pages
+              attr-for-selected="name"
+              selected="[[item.type]]">
+              <google-map name="widget_maps"
+                  disable-default-ui
+                  draggable="false"
+                  disable-zoom
+                  zoom="9"
                   latitude="[[item.latitude]]"
                   longitude="[[item.longitude]]"
-                  title="[[item.title]]"></google-map-marker>
-            </google-map>
+                  api-key="AIzaSyA4GgzXlkM8l2DULdguj8IIgDOgm0KyT-M">
+                <google-map-marker
+                    latitude="[[item.latitude]]"
+                    longitude="[[item.longitude]]"
+                    title="[[item.title]]"></google-map-marker>
+              </google-map>
+              <div name="widget_social">
+                <template is="dom-repeat" items="[[item.links]]" as="link">
+                  <a href="[[link.path]]" tabindex="-1">
+                    <paper-icon-button icon="[[link.icon]]"></paper-icon-button>
+                  </a>
+                </template>
+              </div>
           </template>
 
         </paper-icon-item>

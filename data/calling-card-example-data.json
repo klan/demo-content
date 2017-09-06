@@ -21,5 +21,18 @@
     "title": "kriss-kross",
     "latitude": "55.395248",
     "longitude": "10.371801"
+  }, {
+    "type": "widget_social",
+    "icon": "content-icons:share",
+    "links": [{
+      "icon": "social-icons:github",
+      "path": "https://github.com/klan"
+    }, {
+      "icon": "social-icons:twitter",
+      "path": "https://twitter.com/jegerklaus"
+    }, {
+      "icon": "social-icons:linkedin",
+      "path": "https://www.linkedin.com/in/klnie"
+    }]
   }]
 }
