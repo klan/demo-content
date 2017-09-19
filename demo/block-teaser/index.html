@@ -12,6 +12,7 @@
     <link rel="import" href="../../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../../../iron-ajax/iron-ajax.html">
+    <link rel="import" href="../../../iron-flex-layout/iron-flex-layout.html">
 
     <link rel="import" href="../../demo-block-teaser.html">
 
@@ -26,15 +27,59 @@
 
         <template is="dom-bind">
 
+          <style is="custom-style">
+            .wrapper {
+              max-width: 1800px;
+              @apply(--layout-horizontal);
+              @apply(--layout-wrap);
+              @apply(--layout-center-justified);
+            }
+            .wrapper demo-block-teaser {
+              width: calc(100% - 16px);
+              margin: 8px;
+            }
+            @media (min-width: 800px) {
+              .wrapper demo-block-teaser {
+                width: calc(50% - 16px);
+              }
+            }
+            @media (min-width: 1000px) {
+              .wrapper demo-block-teaser {
+                width: calc(33% - 16px);
+              }
+            }
+            @media (min-width: 1200px) {
+              .wrapper demo-block-teaser {
+                width: calc(25% - 16px);
+              }
+            }
+          </style>
+
           <iron-ajax
             auto
-            url="../../data/markdown-example-data.json"
+            url="../../data/block-example-data.json"
             last-response="{{ajaxResponse}}"></iron-ajax>
 
-          <demo-block-teaser
-            header="[[ajaxResponse.header]]"
-            header-image="[[ajaxResponse.headerImage]]"
-            body="[[ajaxResponse.body]]"></demo-block-teaser>
+          <div class="wrapper">
+
+            <demo-block-teaser
+              header="[[ajaxResponse.header]]"
+              header-image="[[ajaxResponse.headerImage]]"
+              body="[[ajaxResponse.body]]"></demo-block-teaser>
+            <demo-block-teaser
+              header="[[ajaxResponse.header]]"
+              header-image="[[ajaxResponse.headerImage]]"
+              body="[[ajaxResponse.body]]"></demo-block-teaser>
+            <demo-block-teaser
+              header="[[ajaxResponse.header]]"
+              header-image="[[ajaxResponse.headerImage]]"
+              body="[[ajaxResponse.body]]"></demo-block-teaser>
+            <demo-block-teaser
+              header="[[ajaxResponse.header]]"
+              header-image="[[ajaxResponse.headerImage]]"
+              body="[[ajaxResponse.body]]"></demo-block-teaser>
+
+          </div>
 
         </template>
 

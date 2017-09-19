@@ -26,16 +26,44 @@
 
         <template is="dom-bind">
 
+          <style is="custom-style">
+            .wrapper {
+              max-width: 1800px;
+              @apply(--layout-horizontal);
+              @apply(--layout-wrap);
+              @apply(--layout-center-justified);
+            }
+            .wrapper demo-block {
+              width: calc(100% - 16px);
+              margin: 8px;
+            }
+          </style>
+
           <iron-ajax
             auto
             url="../../data/block-example-data.json"
             last-response="{{ajaxResponse}}"></iron-ajax>
 
-          <demo-block
-            header="[[ajaxResponse.header]]"
-            header-image="[[ajaxResponse.headerImage]]"
-            body="[[ajaxResponse.body]]"
-            author="[[ajaxResponse.author]]"></demo-block>
+          <iron-ajax
+            auto
+            url="../../data/markdown-example-data.json"
+            last-response="{{ajaxResponseMD}}"></iron-ajax>
+
+          <div class="wrapper">
+
+            <demo-block
+              header="[[ajaxResponse.header]]"
+              header-image="[[ajaxResponse.headerImage]]"
+              body="[[ajaxResponse.body]]"
+              author="[[ajaxResponse.author]]"></demo-block>
+
+            <demo-block
+              header="[[ajaxResponseMD.header]]"
+              header-image="[[ajaxResponseMD.headerImage]]"
+              body="[[ajaxResponseMD.body]]"
+              author="[[ajaxResponseMD.author]]"></demo-block>
+
+          </div>
 
         </template>
 
