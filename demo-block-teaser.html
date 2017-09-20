@@ -46,7 +46,8 @@
           font-size: 34px;
         };
         --paper-card-actions: {
-          @apply(--layout-horizontal);
+          @apply(--layout-vertical);
+          @apply(--layout-end);
         };
       }
       paper-card ::content #placeholder {
@@ -71,8 +72,15 @@
       .card-content > p:first-child {
         font-weight: bold;
       }
+      .card-actions a {
+        text-decoration: none;
+      }
       marked-element {
         display: block;
+      }
+      /* limit to 3 lines of text */
+      marked-element p {
+        margin: 0;
         overflow: hidden;
         position: relative;
         font-size: 14px;
@@ -81,13 +89,15 @@
         text-align: justify;
         padding-right: 1em;
       }
-      marked-element:before {
+      /* show dots if text is more than 3 lines */
+      marked-element p:before {
         content: '...';
         position: absolute;
         right: 2px;
         bottom: 2px;
       }
-      marked-element:after {
+      /* hide dots if text is less or equal to 3 lines */
+      marked-element p:after {
         content: '';
         position: absolute;
         right: 0;
@@ -96,15 +106,9 @@
         margin-top: 0.2em;
         background: white;
       }
-      marked-element p {
-        margin: 0;
-      }
-      .card-actions {
-        @apply(--layout-vertical);
-        @apply(--layout-end);
-      }
-      .card-actions a {
-        text-decoration: none;
+      /* only show the first paragraph */
+      marked-element p:not(:first-child) {
+        display: none;
       }
     </style>
 
