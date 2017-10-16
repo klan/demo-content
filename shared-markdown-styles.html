@@ -45,7 +45,6 @@
         background-color: #fff;
       }
       :host ::content .markdown-html tr:nth-child(2n) {
-        /* TODO: add opacity to some main color elements, like these table rows */
         background-color: #f8f8f8;
       }
       :host ::content .markdown-html ol {
@@ -57,6 +56,15 @@
       :host ::content .markdown-html ol li:before {
         content: counter(item) ". ";
         counter-increment: item;
+        color: var(--block-main-color, #616161);
+      }
+      :host ::content .markdown-html ul li {
+        list-style: none;
+      }
+      :host ::content .markdown-html ul li:before {
+        content: "\2022";
+        display: inline-block;
+        margin-right: 5px;
         color: var(--block-main-color, #616161);
       }
       :host ::content .markdown-html blockquote {
