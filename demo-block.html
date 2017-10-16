@@ -60,7 +60,6 @@ Custom property | Description | Default
         display: block;
       }
       paper-material {
-
         width: 100%;
         min-width: calc(280px + 32px);
         border-radius: 3px;
@@ -68,13 +67,13 @@ Custom property | Description | Default
 
         @apply --block-container;
       }
-      paper-material ::slotted(.card-image) iron-image {
+      paper-material .card-image iron-image {
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
         width: 100%;
         height: 25vmax;
       }
-      paper-material ::slotted(.card-header) {
+      paper-material .card-header {
         -webkit-font-smoothing: antialiased;
         font-size: 34px;
         font-weight: 400;
@@ -88,7 +87,7 @@ Custom property | Description | Default
 
         @apply --block-header;
       }
-      paper-material ::slotted(.card-content) {
+      paper-material .card-content {
         color: var(--block-content-color, #616161);
         width: 80%;
         min-width: 280px;
@@ -99,24 +98,24 @@ Custom property | Description | Default
 
         @apply --block-content;
       }
-      paper-material ::slotted(.card-author) {
+      paper-material .card-author {
         margin: 8px 0;
         @apply(--layout-horizontal);
         @apply(--layout-center-justified);
         @apply(--layout-center);
       }
-      paper-material ::slotted(.card-author) iron-image {
+      paper-material .card-author iron-image {
         width: 48px;
         height: 48px;
         border-radius: 50%;
       }
-      paper-material ::slotted(.card-author) .info {
+      paper-material .card-author .info {
         margin-left: 8px;
       }
-      paper-material ::slotted(.card-author) .info > p {
+      paper-material .card-author .info > p {
         margin: 4px 0;
       }
-      paper-material ::slotted(.card-actions) {
+      paper-material .card-actions {
         @apply(--layout-horizontal);
         @apply(--layout-end-justified);
         border-top: 1px solid #e8e8e8;
@@ -126,7 +125,7 @@ Custom property | Description | Default
 
         @apply --block-actions;
       }
-      paper-material ::slotted(.card-actions) paper-menu-button {
+      paper-material .card-actions paper-menu-button {
         color: var(--block-main-color, #616161);
       }
     </style>

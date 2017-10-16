@@ -5,80 +5,80 @@
   <template>
 
     <style>
-      :host ::content .markdown-html h1,
-      :host ::content .markdown-html h2,
-      :host ::content .markdown-html h3,
-      :host ::content .markdown-html h4,
-      :host ::content .markdown-html h5,
-      :host ::content .markdown-html h6 {
+      .markdown-html h1,
+      .markdown-html h2,
+      .markdown-html h3,
+      .markdown-html h4,
+      .markdown-html h5,
+      .markdown-html h6 {
         color: var(--block-main-color, #616161);
       }
-      :host ::content .markdown-html a {
+      .markdown-html a {
         color: var(--block-main-color);
         text-decoration: none;
         border-bottom: 1px dotted;
         border-bottom-color: var(--block-main-color);
       }
-      :host ::content .markdown-html a:hover {
+      .markdown-html a:hover {
         border-bottom: 1px solid;
       }
-      :host ::content .markdown-html hr {
+      .markdown-html hr {
         border: 0.1em solid var(--block-main-color, #616161);
       }
-      :host ::content .markdown-html img {
+      .markdown-html img {
         max-width: 100%;
         max-height: 100%;
         margin: 0 auto;
         display: block;
       }
-      :host ::content .markdown-html table {
+      .markdown-html table {
         overflow-x: auto;
         display: block;
         border-collapse: collapse;
       }
-      :host ::content .markdown-html th,
-      :host ::content .markdown-html td {
+      .markdown-html th,
+      .markdown-html td {
         padding: 6px 13px;
         border: 1px solid var(--block-main-color, #616161);
       }
-      :host ::content .markdown-html tr {
+      .markdown-html tr {
         background-color: #fff;
       }
-      :host ::content .markdown-html tr:nth-child(2n) {
+      .markdown-html tr:nth-child(2n) {
         background-color: #f8f8f8;
       }
-      :host ::content .markdown-html ol {
+      .markdown-html ol {
         counter-reset: item;
       }
-      :host ::content .markdown-html ol li {
+      .markdown-html ol li {
         display: block;
       }
-      :host ::content .markdown-html ol li:before {
+      .markdown-html ol li:before {
         content: counter(item) ". ";
         counter-increment: item;
         color: var(--block-main-color, #616161);
       }
-      :host ::content .markdown-html ul li {
+      .markdown-html ul li {
         list-style: none;
       }
-      :host ::content .markdown-html ul li:before {
+      .markdown-html ul li:before {
         content: "\2022";
         display: inline-block;
         margin-right: 5px;
         color: var(--block-main-color, #616161);
       }
-      :host ::content .markdown-html blockquote {
+      .markdown-html blockquote {
         padding: 0 1em;
         color: #777;
         border-left: 0.25em solid var(--block-main-color, #616161);
       }
-      :host ::content .markdown-html code,
-      :host ::content .markdown-html pre {
+      .markdown-html code,
+      .markdown-html pre {
         padding: 0.2em;
         background-color: #f7f7f7;
         border-radius: 3px;
       }
-      :host ::content .markdown-html pre {
+      .markdown-html pre {
         overflow-x: auto;
         padding: 0.4em;
       }
