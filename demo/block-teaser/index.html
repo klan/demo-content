@@ -28,6 +28,7 @@
         <template is="dom-bind">
 
           <style is="custom-style">
+            @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
             .wrapper {
               max-width: 1800px;
               @apply(--layout-horizontal);
@@ -37,6 +38,28 @@
             .wrapper demo-block-teaser {
               width: calc(100% - 16px);
               margin: 8px;
+            }
+            .styled {
+              --block-background-color: #eee;
+              --block-content-color: darkred;
+              --block-container: {
+                font-family: 'Merriweather Sans', sans-serif;
+              };
+              --block-header: {
+                /* font-weight: bold; */
+              };
+              --block-content: {
+                font-style: italic;
+              };
+              --block-actions: {
+                border-top: 1px solid #d8d8d8;
+              };
+            }
+            .markdown-styled {
+              --block-main-color: green;
+              --block-content: {
+                font-family: 'Merriweather Sans', sans-serif;
+              };
             }
             @media (min-width: 800px) {
               .wrapper demo-block-teaser {
@@ -62,12 +85,12 @@
 
           <div class="wrapper">
 
-            <demo-block-teaser
+            <demo-block-teaser class="styled"
               header="[[ajaxResponse.header]]"
               header-image="[[ajaxResponse.headerImage]]"
               body="[[ajaxResponse.body]]"
               link="#"></demo-block-teaser>
-            <demo-block-teaser
+            <demo-block-teaser class="markdown-styled"
               header="[[ajaxResponse.header]]"
               header-image="[[ajaxResponse.headerImage]]"
               body="[[ajaxResponse.body]]"
